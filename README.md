@@ -1,3 +1,5 @@
+## net
+
 This is a project to write a simple library capable of building feedforward neural networks using Python and numpy.
 
 I first started building something like this on top of PyTorch but realised if I was make it a learning experience, I should build at a lower abstraction layer. So here it is, with numpy as my base
