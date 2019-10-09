@@ -6,9 +6,20 @@ train, valid = get_data_sets()
 sample = next(train())
 h, w = sample.shape
 npix = h*w
-#print([h, w])
+NODES = [7, 4, 6]
+model = []
+nodes = [npix] + NODES + [npix]
 
-net = [layer.Dense(npix, npix, activation.tanh), layer.Dense(npix, npix, activation.tanh)]
-encoder = framework.NN(net, range = (0, 1))
+for layers in range(len(nodes)-1):
+    print(layers)
+    model.append(layer.Dense(
+        nodes[layers],
+        nodes[layers+1],
+        activation.tanh
+    ))
+    print(model)
+
+#net = [layer.Dense(npix, npix, activation.tanh), layer.Dense(npix, npix, activation.tanh)]
+encoder = framework.NN(model, range = (0, 1))
 print(encoder.train(train))
 #print(encoder.evaluate(valid))
