@@ -15,11 +15,10 @@ for layers in range(len(nodes)-1):
     model.append(layer.Dense(
         nodes[layers],
         nodes[layers+1],
-        activation.tanh
+        activation.tanh,
     ))
     print(model)
 
-#net = [layer.Dense(npix, npix, activation.tanh), layer.Dense(npix, npix, activation.tanh)]
 encoder = framework.NN(model, range = (0, 1))
 print(encoder.train(train))
 #print(encoder.evaluate(valid))

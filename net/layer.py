@@ -13,7 +13,6 @@ class Dense(object):
         self.y = np.zeros((1, self.noutput))
 
     def forward(self, inp):
-
         bias = np.ones((1, 1))
         self.x = np.concatenate((inp, bias), axis = 1)
         self.y = self.activate.calc(self.x @ self.weights)
